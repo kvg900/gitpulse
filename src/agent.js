@@ -186,7 +186,7 @@ Current PR: ${owner}/${repo} #${prNumber} "${prTitle}" by @${author}`;
       //   hitting Groq's tokens-per-minute limit on the free tier.
       //
       const response = await groq.chat.completions.create({
-        model: "llama3-groq-70b-8192-tool-use-preview",
+        model: "llama-3.3-70b-versatile",
         messages: messages,
         tools: groqTools,
         tool_choice: "auto", // model decides when to call tools vs when to stop
