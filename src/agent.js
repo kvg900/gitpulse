@@ -50,6 +50,8 @@
 //    (Gemini wraps everything in a "functionDeclarations" array inside a "tools" object)
 //
 // ============================================================
+import dotenv from "dotenv";
+dotenv.config();
 
 import Groq from "groq-sdk";
 import { createMcpClient } from "./mcpClient.js";
