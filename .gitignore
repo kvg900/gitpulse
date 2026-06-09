@@ -1,0 +1,9 @@
+# Dependencies — installed locally, not committed to git
+node_modules/
+
+# Your actual secrets — NEVER commit this file!
+.env
+
+# OS junk
+.DS_Store
+Thumbs.db
