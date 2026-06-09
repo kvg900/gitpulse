@@ -59,9 +59,10 @@ export async function createMcpClient() {
   //
   const transport = new StdioClientTransport({
     command: "npx",
-    // @github/github-mcp-server is the new official GitHub MCP server.
-    // The old @modelcontextprotocol/server-github was deprecated in April 2025.
-    args: ["-y", "@github/github-mcp-server"],
+    // @modelcontextprotocol/server-github still works despite the deprecation warning.
+    // The new official server (github/github-mcp-server) is binary-only and cannot
+    // be used with npx, so we stay on this npm package.
+    args: ["-y", "@modelcontextprotocol/server-github"],
     env: {
       ...process.env, // pass through our env variables (PATH etc.)
       GITHUB_PERSONAL_ACCESS_TOKEN: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
