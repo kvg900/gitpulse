@@ -59,7 +59,9 @@ export async function createMcpClient() {
   //
   const transport = new StdioClientTransport({
     command: "npx",
-    args: ["-y", "@modelcontextprotocol/server-github"],
+    // @github/github-mcp-server is the new official GitHub MCP server.
+    // The old @modelcontextprotocol/server-github was deprecated in April 2025.
+    args: ["-y", "@github/github-mcp-server"],
     env: {
       ...process.env, // pass through our env variables (PATH etc.)
       GITHUB_PERSONAL_ACCESS_TOKEN: process.env.GITHUB_PERSONAL_ACCESS_TOKEN,
@@ -73,12 +75,12 @@ export async function createMcpClient() {
   //
   const client = new Client(
     {
-      name: "gitpulse-agent",   // identifies our client to the server
+      name: "gitpulse-agent", // identifies our client to the server
       version: "1.0.0",
     },
     {
-      capabilities: {},         // we don't advertise any special capabilities
-    }
+      capabilities: {}, // we don't advertise any special capabilities
+    },
   );
 
   // connect() performs the MCP "initialize" handshake:

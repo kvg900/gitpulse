@@ -15,16 +15,13 @@
 //    webhook so you can verify it actually came from GitHub.
 // ============================================================
 
-import dotenv from "dotenv";
-
-// Load variables from your .env file into process.env
-// This MUST happen before importing agent.js, since agent.js
-// accesses process.env.GROQ_API_KEY at the top level
-dotenv.config();
-
 import express from "express";
 import crypto from "crypto"; // Node's built-in crypto library
+import dotenv from "dotenv";
 import { runAgent } from "./agent.js";
+
+// Load variables from your .env file into process.env
+dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 8080;

@@ -1,3 +1,4 @@
+// ============================================================
 //  agent.js  —  The "brain" of GitPulse
 //
 //  WHAT THIS FILE DOES:
@@ -186,7 +187,7 @@ Current PR: ${owner}/${repo} #${prNumber} "${prTitle}" by @${author}`;
       //   hitting Groq's tokens-per-minute limit on the free tier.
       //
       const response = await groq.chat.completions.create({
-        model: "llama-3.3-70b-versatile",
+        model: "llama3-groq-70b-8192-tool-use-preview",
         messages: messages,
         tools: groqTools,
         tool_choice: "auto", // model decides when to call tools vs when to stop
